@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-navy: #0D1B3E;
+  --color-cyan: #3AABF0;
+  --color-orange: #FF8C00;
+  --color-light-bg: #EAF4FF;
+  
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Sora", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans); /* Use the font variable */
+    background-color: var(--color-white); /* Assuming you have defined 'color-white' in :root */
+    color: var(--color-navy); /* Assuming you have defined 'color-navy' in :root */
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); /* Use the font variable */
+  font-weight: var(--font-extrabold); /* Assuming you have an "extrabold" weight defined in your CSS */
+  letter-spacing: -0.025em; /* Example for tight tracking */
+}
+
+@layer utilities {
+  .text-glass {
+    backdrop-filter: blur(10px); /* Apply backdrop blur */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* White border with some transparency */
+  }
+}
+
+.glow-orange {
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.35);
+}
+
+@keyframes gradientMorph {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 400% 400%;
+  animation: gradientMorph 12s ease infinite;
+}
+
+.robot-float {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #3AABF0;
+  box-shadow: 0 0 10px #3AABF0;
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
